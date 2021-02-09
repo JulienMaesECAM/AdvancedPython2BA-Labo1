@@ -10,7 +10,18 @@ def fact(n):
 	Post: Returns the factorial of 'n'.
 	Throws: ValueError if n < 0
 	"""
-	pass
+	try:
+		if n == 0:
+			return 1
+		else:
+			O = 1
+			for i in range(2,n+1):
+				O = O * i
+		return O
+	except ValueError:
+		print("Oops! That was no valid number. Try again with a positive number")
+
+		return O
 
 def roots(a, b, c):
 	"""Computes the roots of the ax^2 + bx + x = 0 polynomial.
@@ -19,6 +30,7 @@ def roots(a, b, c):
 	Post: Returns a tuple with zero, one or two elements corresponding
 		to the roots of the ax^2 + bx + c polynomial.
 	"""
+
 	pass
 
 def integrate(function, lower, upper):
