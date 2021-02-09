@@ -2,15 +2,12 @@
 # Math library
 # Author: Sébastien Combéfis
 # Version: February 8, 2018
+from math import sqrt
 
 def fact(n):
-	"""Computes the factorial of a natural number.
-	
-	Pre: -
-	Post: Returns the factorial of 'n'.
-	Throws: ValueError if n < 0
-	"""
 	try:
+		if n <= 1:
+			raise ValueError
 		if n == 0:
 			return 1
 		else:
@@ -21,17 +18,20 @@ def fact(n):
 	except ValueError:
 		print("Oops! That was no valid number. Try again with a positive number")
 
-		return O
-
 def roots(a, b, c):
-	"""Computes the roots of the ax^2 + bx + x = 0 polynomial.
-	
-	Pre: -
-	Post: Returns a tuple with zero, one or two elements corresponding
-		to the roots of the ax^2 + bx + c polynomial.
-	"""
 
-	pass
+	delta = ((b**2)-(4*a*c))
+	try:
+		if (delta>0):
+			a = -((b+(sqrt(delta)))/2*a)
+			b = -((b-(sqrt(delta)))/2*a)
+			return a,b
+		if (delta == 0 ):
+			return (-b/2*a),
+		else:
+			return ()
+	except ValueError:
+		print("Oops! That was no valid numbers. Try again with a positive combination for delta")
 
 def integrate(function, lower, upper):
 	"""Approximates the integral of a fonction between two bounds
