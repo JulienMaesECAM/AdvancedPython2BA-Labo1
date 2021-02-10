@@ -3,7 +3,7 @@
 # Author: Sébastien Combéfis
 # Version: February 8, 2018
 from math import sqrt
-
+from numpy import np
 def fact(n):
 	try:
 		if n <= 1:
@@ -27,7 +27,7 @@ def roots(a, b, c):
 			b = -((b-(sqrt(delta)))/2*a)
 			return a,b
 		if (delta == 0 ):
-			return (-b/2*a),
+			return (-b/(2*a)),
 		else:
 			return ()
 	except ValueError:
@@ -46,7 +46,13 @@ def integrate(function, lower, upper):
 		you'll probably need the 'eval' function to evaluate the function
 		to integrate given as a string.
 	"""
-	pass
+	try: 
+		if (lower<= upper):
+			raise Exception
+		if ():
+			raise Exception
+	except Exception: 
+		print("")
 
 if __name__ == '__main__':
 	print(fact(5))
