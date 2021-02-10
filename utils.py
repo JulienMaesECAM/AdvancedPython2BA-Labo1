@@ -2,8 +2,10 @@
 # Math library
 # Author: Sébastien Combéfis
 # Version: February 8, 2018
+from scipy.integrate import quad
 from math import sqrt
-from numpy import np
+import numpy as np 
+
 def fact(n):
 	try:
 		if n <= 1:
@@ -34,27 +36,15 @@ def roots(a, b, c):
 		print("Oops! That was no valid numbers. Try again with a positive combination for delta")
 
 def integrate(function, lower, upper):
-	"""Approximates the integral of a fonction between two bounds
-	
-	Pre: 'function' is a valid Python expression with x as a variable,
-		'lower' <= 'upper',
-		'function' continuous and integrable between 'lower‘ and 'upper'.
-	Post: Returns an approximation of the integral from 'lower' to 'upper'
-		of the specified 'function'.
-
-	Hint: You can use the 'integrate' function of the module 'scipy' and
-		you'll probably need the 'eval' function to evaluate the function
-		to integrate given as a string.
-	"""
 	try: 
-		if (lower<= upper):
+		if (upper<= lower):
 			raise Exception
-		if ():
-			raise Exception
+		res= quad(lambda x: eval(function), lower, upper)
+		print (res)
 	except Exception: 
-		print("")
+		print("Oops! That was no valid input. Try again with a continious function or verify the lower or upper limit")
 
 if __name__ == '__main__':
 	print(fact(5))
 	print(roots(1, 0, 1))
-	print(integrate('x ** 2 - 1', -1, 1))
+	print(integrate("x ** 2 - 1", -1, 1))
